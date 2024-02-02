@@ -1,0 +1,11 @@
+FROM eclipse-temurin:21-jre
+
+WORKDIR /app
+
+COPY target/java-*.jar java.jar
+
+EXPOSE 8448
+
+LABEL maintainer="thomas"
+
+CMD ["java","-jar","java.jar"]

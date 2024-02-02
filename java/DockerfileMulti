@@ -14,7 +14,7 @@ COPY --from=builder /app/target/java-*.jar java.jar
 
 EXPOSE 8448
 
-LABEL maintainer="votre_prénom"
+LABEL maintainer="thomas"
 
 CMD ["java","-jar","java.jar"]
 

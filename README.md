@@ -42,6 +42,8 @@ Un l'url et le token de connexion vous sera donner pendant l'exam.
 Dans un fichier txt simple à coté de votre docker-compose.yml répondez aux questions suivantes:  
 16) Qu'est ce que Docker ? A quoi cela sert-il ?
 
+C'est un logiciel de contenneurisation, l'un des premiers. La contenneurisation sert à faire tourner plusieurs processus sur un même kernel de manière isolée et surtout beaucoup plus facielement que l'en faisant tourner différente 1 VM par processus, comme c'était fait avant.
+
 17) Qu'est ce que la CI et la CD ? Pourquoi est-ce utile ?
 
 CI = continuous integration
@@ -51,8 +53,15 @@ Ca sert à automatiser le processus d'intégration (CI) de mise à jours dans de
 
 18) Qu'avez vous pensez du cours ? 
 
-j'ai bien aimez, il n'y aavait pas trop de moment de cours qui
+j'ai bien aimez, il n'y avait pas trop de moment de CM ou iil fallait juste écoutait.
+J'aimais l'apporche petit cours puis application.
 
 19) Surprenez moi
 
+Je ne peux plus build (voir image)
+
+![alt text](image.png)
+
 20) Créer un repo sur github et pusher votre code
+
+Fait, on est dasn mon dépôt
