@@ -19,12 +19,6 @@ services:
       timeout: 3s
       retries: 3
 
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
-
   back:
     image: back
     build: 

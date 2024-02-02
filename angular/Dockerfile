@@ -18,4 +18,6 @@ RUN chmod +x /docker-entrypoint.d/entrypoint.sh
 
 COPY --from=builder /app/dist/* /usr/share/nginx/html
 
+LABEL maintainer="prenom"
+
 
