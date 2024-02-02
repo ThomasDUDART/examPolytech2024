@@ -1,0 +1,72 @@
+services:
+  database:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password 
+      MYSQL_DATABASE: superheroes  
+      MYSQL_USER: sa 
+      MYSQL_PASSWORD: admin
+    volumes:
+      - database:/var/lib/mysql/data
+    networks:
+      - network
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  back:
+    image: back
+    build: 
+      context: java/
+      dockerfile: DockerfileMulti
+    container_name: back
+    depends_on:
+      database:
+        condition: service_healthy
+        restart: true
+    ports:
+      - 8448:8448 #pas utile comme expose dans dockerfile, masi ralentis pas et permet d'y avoir accès facielement
+    healthcheck:
+      test: curl http://localhost:8448/actuator/health
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    environment:
+      - spring.datasource.url=jdbc:mysql://localhost:3306/superheroes #### à  vérif en test pas sur
+      - spring.datasource.username=sa
+      - spring.datasource.password=admin
+    networks:
+      - network
+
+  front:
+      image: front
+      build: 
+        context: angular/
+        dockerfile: Dockerfile
+      container_name: front
+      depends_on:
+        back:
+          condition: service_healthy
+      ports:
+        - 8000:80
+      environment:
+        - BACKEND_URL=http://localhost:8448
+
+volumes:
+  database:
+
+
+networks:
+  network:    
+      

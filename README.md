@@ -44,7 +44,14 @@ Dans un fichier txt simple à coté de votre docker-compose.yml répondez aux qu
 
 17) Qu'est ce que la CI et la CD ? Pourquoi est-ce utile ?
 
+CI = continuous integration
+CD = continuous depoliement
+
+Ca sert à automatiser le processus d'intégration (CI) de mise à jours dans des applications en prod ( on évité les copiés coller sale source d'erreur) et de déploiement en faisant des test automatiques et des actions type github actions pour valider le code et l'envoyer aussitôt modifié en production.
+
 18) Qu'avez vous pensez du cours ? 
+
+j'ai bien aimez, il n'y aavait pas trop de moment de cours qui
 
 19) Surprenez moi
 

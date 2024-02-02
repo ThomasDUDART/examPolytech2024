@@ -1,0 +1,20 @@
+FROM maven:3.9-eclipse-temurin-8 as builder
+
+WORKDIR /app
+
+COPY . .
+
+RUN mvn clean package -Dspring.profiles.active=sql -DskipTests
+
+FROM eclipse-temurin:8-jre
+
+WORKDIR /app
+
+COPY --from=builder /app/target/java-*.jar java.jar
+
+EXPOSE 8448
+
+LABEL maintainer="votre_prénom"
+
+CMD ["java","-jar","java.jar"]
+
